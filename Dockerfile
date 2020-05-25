@@ -5,5 +5,5 @@ WORKDIR /app
 COPY . ./
 ARG BUILD=false
 RUN if [ "$BUILD" = "true" ] ; then npm install ; else echo "Skipping npm install" ; fi
-EXPOSE 80
+EXPOSE 4000
 CMD ["npm", "start"]

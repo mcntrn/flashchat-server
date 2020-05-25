@@ -29,8 +29,7 @@ const resolvers = {
 const server = new ApolloServer({typeDefs, resolvers});
 
 init().then(() => {
-    const PORT = process.env.PORT === null ? 80 : process.env.PORT
-    server.listen({ port: PORT }).then(({url}) => {
+    server.listen().then(({url}) => {
         console.log(`✨ flashchat-Server ready at ${url} ✨`)
     });
 })
