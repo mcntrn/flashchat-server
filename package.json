@@ -1,0 +1,29 @@
+{
+  "name": "flashchat-server",
+  "version": "0.1.0",
+  "description": "A graphql based chat server",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mcntrn/flashchat-server.git"
+  },
+  "author": "Manuel Cintron",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcntrn/flashchat-server/issues"
+  },
+  "homepage": "https://github.com/mcntrn/flashchat-server#readme",
+  "dependencies": {
+    "apollo-server": "^2.13.1",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.0.0",
+    "mongodb": "^3.5.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

@@ -1,0 +1,34 @@
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.SourceVersion)'
+
+steps:
+
+- script: |
+    shortversion=$(echo $(tag) | cut -c1-7)
+    echo "##vso[task.setvariable variable=shortversion]$shortversion"
+  displayName: 'Get short commit id'
+
+- script: |
+    npm install
+  displayName: 'npm install and build'
+
+- task: Docker@2
+  displayName: Build and push an image
+  inputs:
+    containerRegistry: 'dockerhub-mcntrn'
+    repository: 'mcntrn/flashchat-server'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: '$(shortversion)'
+
+
+
