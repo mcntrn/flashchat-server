@@ -12,7 +12,7 @@ const connectionUrl = `mongodb://${user}:${password}@${host}:${port}/?authMechan
 let db
 
 const init = () =>
-  MongoClient.connect(connectionUrl, { useNewUrlParser: true }).then((client) => {
+  MongoClient.connect(connectionUrl, { useUnifiedTopology: true, useNewUrlParser: true }).then((client) => {
     db = client.db(dbName)
 })
 
