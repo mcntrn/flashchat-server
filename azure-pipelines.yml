@@ -30,5 +30,6 @@ steps:
     Dockerfile: '**/Dockerfile'
     tags: '$(shortversion)'
 
-
+- task: WhiteSource Bolt@20
+  displayName: 'Run WhiteSource Bolt'
 
